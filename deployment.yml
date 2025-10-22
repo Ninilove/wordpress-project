@@ -66,4 +66,17 @@ spec:
       - name: uploads
         persistentVolumeClaim:
           claimName: wordpress-uploads-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+spec:
+  selector:
+    app: wordpress
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
 
