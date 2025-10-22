@@ -1,0 +1,22 @@
+#!/bin/bash
+# build-and-deploy.sh
+
+# Build the custom WordPress image
+docker build -t your-registry/wordpress:6.3-php8.2-apache .
+
+# Push to container registry
+docker push your-registry/wordpress:6.3-php8.2-apache
+
+# Deploy to Kubernetes
+kubectl apply -f mysql-secret.yaml
+kubectl apply -f mysql-pvc.yaml
+kubectl apply -f mysql-deployment.yaml
+kubectl apply -f mysql-service.yaml
+kubectl apply -f wordpress-pvc.yaml
+kubectl apply -f wordpress-deployment.yaml
+kubectl apply -f wordpress-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller v1.8.2/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f wordpress-ingress.yaml
+
+# Wait for deployment to complete
+kubectl rollout status deployment/wordpress
