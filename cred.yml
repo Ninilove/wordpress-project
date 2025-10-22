@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+type: Opaque
+data:
+  root-password: QWxpbm9CaXJ0aGRheTQ1QA==
+  username: QWxpbm8=
+  password: UHJvamVjdDIwMjUh
