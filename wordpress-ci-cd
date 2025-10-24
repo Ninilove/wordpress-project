@@ -2,10 +2,10 @@
 # build-and-deploy.sh
 
 # Build the custom WordPress image
-docker build -t your-registry/wordpress:6.3-php8.2-apache .
+docker build -t ngouabounina/wordpress:6.3-php8.2-apache .
 
 # Push to container registry
-docker push your-registry/wordpress:6.3-php8.2-apache
+docker push ngouabounina/wordpress:6.3-php8.2-apache
 
 # Deploy to Kubernetes
 kubectl apply -f mysql-secret.yml
