@@ -2,8 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
 spec:
-  ingressClassName: kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: / 
+  ingressClassName: nginx
   rules:
   - host: app.ninilovecloud.net
     http:
