@@ -24,8 +24,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
 
 # Copy custom configuration
-COPY custom.ini /usr/local/etc/php/conf.d/
-COPY wp-config.php /usr/local/etc/wp-config.php
+#COPY custom.ini /usr/local/etc/php/conf.d/
+#COPY wp-config.php /usr/local/etc/wp-config.php
 
 # Set working directory
 WORKDIR /var/www/html
