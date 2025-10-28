@@ -16,7 +16,7 @@ kubectl apply -f wordpress-deployment.yml
 kubectl apply -f metrics-server.yml
 kubectl apply -f wordpress-hpa.yml
 kubectl apply -f mysql-hpa.yml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller v1.8.2/deploy/static/provider/cloud/deploy.yml
+kubectl apply -f ingress-nginx-controller.yml
 kubectl apply -f wordpress-ingress.yml
 
 # Wait for deployment to complete
