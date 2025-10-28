@@ -1,0 +1,31 @@
+node{
+    //def mavenHome = tool name: 'maven3.9.6'
+    stage('1CloneCode'){
+        git branch: 'main', url: 'https://github.com/Alaindf/wordpress-project.git'
+        //sh "https://github.com/nfestaclass04/maven-web-application.git"
+        //bat "https://github.com/nfestaclass04/maven-web-application.git"
+    }
+    stage('Building docker image'){
+        sh 'docker build -t allecfr/wordpress:6.3-php8.2-apache .'
+    }
+    stage('3Push to docker registry'){
+        sh 'docker push allecfr/wordpress:6.3-php8.2-apache'
+    }
+    stage('4Deploying to kubernetes'){
+        sh """
+                      kubectl apply -f mysql-secret.yml --validate=false
+                      kubectl apply -f mysql-pvc.yml
+                      kubectl apply -f mysql-deployment.yml
+                      kubectl apply -f wordpress-pvc.yml
+                      kubectl apply -f wordpress-deployment.yml
+                      kubectl apply -f metrics-server.yml 
+                      kubectl apply -f wordpress-hpa.yml
+                      kubectl apply -f ingress-nginx-controller.yml
+                      kubectl apply -f wordpress-ingress.yml
+                      kubectl rollout status deployment/wordpress 
+                   """
+    }
+    stage('5DeploymentUat'){}
+    stage('6DeploymentProd'){}
+    stage('7Notification'){}
+ }                             
