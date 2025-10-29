@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: fast-storage
+  storageClassName: fast-ssd
   awsElasticBlockStore:
     volumeID: vol-02d0c1f843a447dc2
     fsType: ext4
