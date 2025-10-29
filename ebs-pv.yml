@@ -11,5 +11,5 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: fast-storage
   awsElasticBlockStore:
-    volumeID: vol-1234567890abcdef0
+    volumeID: vol-0f845ba59c6ee3322
     fsType: ext4
