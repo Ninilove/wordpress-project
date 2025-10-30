@@ -10,6 +10,7 @@ spec:
       storage: 10Gi
   storageClassName: local-storage
   volumeName: local-pv-volume1
+  volumeMode: Filesystem
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -23,3 +24,4 @@ spec:
       storage: 10Gi
   storageClassName: local-storage2
   volumeName: local-pv-volume2
+  volumeMode: Filesystem
