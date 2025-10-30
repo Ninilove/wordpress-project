@@ -43,7 +43,7 @@ spec:
       volumes:
       - name: local-pv-volume1
         persistentVolumeClaim:
-          claimName: local-storage
+          claimName: pvc-local-volume1
 ---
 apiVersion: v1
 kind: Service
