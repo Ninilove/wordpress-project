@@ -35,9 +35,9 @@ spec:
         - name: WORDPRESS_DB_NAME
           value: "wordpress"
         - name: WP_HOME
-          value: "https://your-domain.com"
+          value: "https://app.ninilovecloud.net"
         - name: WP_SITEURL
-          value: "https://your-domain.com"
+          value: "https://app.ninilovecloud.net"
         - name: WP_DEBUG
           value: "false"
         resources:
