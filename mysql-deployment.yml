@@ -34,6 +34,13 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: password
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
         ports:
         - containerPort: 3306
           name: mysql
