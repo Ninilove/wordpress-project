@@ -17,10 +17,3 @@ spec:
             name: wordpress-service
             port:
               number: 80
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: mysql-service 
-            port:
-              number: 80
