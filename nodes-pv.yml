@@ -9,7 +9,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
   local:
     path: /mnt/volume1
@@ -20,7 +20,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - ip-10-0-0-218.ec2.internal  # Replace with your actual node name
+          - ip-10-0-0-161.ec2.internal  # Replace with your actual node name
 ---
 # local-pv-ssd2.yaml
 apiVersion: v1
@@ -33,7 +33,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage2
   local:
     path: /mnt/volume2
@@ -44,4 +44,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - ip-10-0-1-90.ec2.internal  # Replace with your actual node name
+          - ip-10-0-1-91.ec2.internal  # Replace with your actual node name
