@@ -21,5 +21,5 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: local-storage
+  storageClassName: local-storage2
   volumeName: local-pv-volume2
