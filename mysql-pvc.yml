@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pvc
 spec:
-  volumeName: 
+  volumeName: aws-ebs-pv
   volumeMode: local-storage
   accessModes:
     - ReadWriteMany
