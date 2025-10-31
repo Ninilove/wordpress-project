@@ -1,4 +1,4 @@
-FROM wordpress:6.3-php8.2-apache
+FROM wordpress:6.2.1-apache
 
 # Install additional PHP extensions
 RUN apt-get update && apt-get install -y \
