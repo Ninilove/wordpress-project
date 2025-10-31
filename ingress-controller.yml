@@ -103,6 +103,7 @@ metadata:
   name: metrics-server
   namespace: kube-system
 spec:
+  type: LoadBalancer
   ports:
   - name: https
     port: 443
