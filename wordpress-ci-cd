@@ -2,22 +2,21 @@
 # build-and-deploy.sh
 
 # Build the custom WordPress image
-docker build -t ngouabounina/wordpress:6.3-php8.2-apache .
+docker build -t ngouabounina/wordpress:6.2.1-apache .
 
 # Push to container registry
-docker push ngouabounina/wordpress:6.3-php8.2-apache
+docker push ngouabounina/wordpress:6.2.1-apache
 
 # Deploy to Kubernetes
 kubectl apply -f mysql-secret.yml
-kubectl apply -f mysql-pvc.yml
+kubectl apply -f nodes-pv.yml
+kubectl apply -f nodes-pvc.yml
+kubectl apply -f storageclass.yml
 kubectl apply -f mysql-deployment.yml
-kubectl apply -f wordpress-pvc.yml
 kubectl apply -f wordpress-deployment.yml
-kubectl apply -f metrics-server.yml
-kubectl apply -f wordpress-hpa.yml
+kubectl apply -f ingress-controller.yml
 kubectl apply -f mysql-hpa.yml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller v1.8.2/deploy/static/provider/cloud/deploy.yml
+kubectl apply -f wordpress-hpa.yml
 kubectl apply -f wordpress-ingress.yml
-
 # Wait for deployment to complete
 kubectl rollout status deployment/wordpress
