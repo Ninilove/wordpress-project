@@ -44,4 +44,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - ip-10-0-0-48.ec2.internal  # Replace with your actual node name
+          - ip-10-0-1-183.ec2.internal  # Replace with your actual node name
