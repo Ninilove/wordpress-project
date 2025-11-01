@@ -20,7 +20,7 @@ RUN mkdir -p /var/www/html/wp-content/uploads \
     && chown -R www-data:www-data /var/www/html
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+HEALTHCHECK --interval=90s --timeout=30s --start-period=10s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
 
 # Copy custom configuration
