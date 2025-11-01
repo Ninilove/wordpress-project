@@ -1,3 +1,46 @@
+## pipeline script
+pipeline {
+    agent {label 'agent'}
+	stages { 
+        stage('cloning our code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Ninilove/wordpress-project.git'
+            }
+        }
+        stage('Building docker image') {
+            steps {
+                sh 'docker build -t ngouabounina/wordpress:6.3-php8.2-apache .'
+            }
+        }
+        stage('Push to docker registry') {
+            steps {
+                sh 'docker push ngouabounina/wordpress:6.3-php8.2-apache'
+            }
+        }
+        stage('Deploying to kubernetes') {
+            steps {
+                sh """
+                      kubectl apply -f mysql-secret.yml
+                      kubectl apply -f nodes-pv.yml
+                      kubectl apply -f nodes-pvc.yml
+                      kubectl apply -f storageclass.yml
+                      kubectl apply -f mysql-deployment.yml
+                      kubectl apply -f wordpress-deployment.yml
+                      kubectl apply -f ingress-controller.yml 
+                      kubectl apply -f mysql-hpa.yml
+                      kubectl apply -f wordpress-hpa.yml
+                      kubectl apply -f wordpress-ingress.yml
+                      kubectl rollout status deployment/mysql
+                   """
+            }
+        }
+    }
+}
+
+
+
+
+########################################################################
 #!/bin/bash
 # build-and-deploy.sh
 
