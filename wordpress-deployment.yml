@@ -51,13 +51,13 @@ spec:
           httpGet:
             path: /
             port: 80
-          initialDelaySeconds: 90
+          initialDelaySeconds: 120
           periodSeconds: 10
         readinessProbe:
           httpGet:
             path: /
             port: 80
-          initialDelaySeconds: 90
+          initialDelaySeconds: 120
           periodSeconds: 10
         volumeMounts:
         - name: local-pv-volume2
