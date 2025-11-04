@@ -35,7 +35,7 @@ spec:
         tier: database
     spec:
       containers:
-      - image: jolly3/wpback
+      - image: ngouabounina/mysql:v1
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD 
