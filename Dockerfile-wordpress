@@ -22,11 +22,11 @@ RUN set -x \
     && sed -i "s/DirectoryIndex/DirectoryIndex index.php/" /etc/apache2/mods-available/dir.conf \
     && sed -i "s/DirectoryIndex/DirectoryIndex index.php/" /etc/apache2/mods-enabled/dir.conf 
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY entrypoint-wordpress.sh /entrypoint-wordpress.sh
+RUN chmod +x /entrypoint-wordpress.sh
 
 RUN ln -sf /dev/stdout /var/log/apache2/access.log \
     && ln -sf /dev/stderr /var/log/apache2/error.log
 
 EXPOSE 80
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint-wordpress.sh"]
