@@ -16,9 +16,9 @@ RUN set -x \
     && sudo sh -c "echo 'datadir=/var/lib/mysql' >> /etc/mysql/my.cnf"
 
 VOLUME /var/lib/mysql
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY mysql-entrypoint.sh /mysql-entrypoint.sh
+RUN chmod +x /mysql-entrypoint.sh
+ENTRYPOINT ["/mysql-entrypoint.sh"]
 
 EXPOSE 3306 33060
 CMD ["mysqld"]
