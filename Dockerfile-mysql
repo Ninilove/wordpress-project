@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 ARG MYSQL_PWD_INSTALLATION
 
-RUN apt-get update -y \
+RUN apt-get update && apt-get install -y sudo \
     && { \
             echo "mysql-server mysql-server/root_password password $MYSQL_PWD_INSTALLATION"; \
             echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD_INSTALLATION"; \
