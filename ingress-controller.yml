@@ -63,7 +63,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: metrics-server
-  namespace: kube-system
+  namespace: default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -78,7 +78,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: metrics-server
-  namespace: kube-system
+  namespace: default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -93,7 +93,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: metrics-server
-  namespace: kube-system
+  namespace: default
 ---
 apiVersion: v1
 kind: Service
@@ -101,7 +101,7 @@ metadata:
   labels:
     k8s-app: metrics-server
   name: metrics-server
-  namespace: kube-system
+  namespace: default
 spec:
   type: LoadBalancer
   ports:
@@ -118,7 +118,7 @@ metadata:
   labels:
     k8s-app: metrics-server
   name: metrics-server
-  namespace: kube-system
+  namespace: default
 spec:
   selector:
     matchLabels:
@@ -193,6 +193,6 @@ spec:
   insecureSkipTLSVerify: true
   service:
     name: metrics-server
-    namespace: kube-system
+    namespace: default
   version: v1beta1
   versionPriority: 100
