@@ -27,7 +27,7 @@ spec:
       app: mysql
       tier: database
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:
