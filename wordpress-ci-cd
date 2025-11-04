@@ -20,17 +20,18 @@ pipeline {
         stage('Deploying to kubernetes') {
             steps {
                 sh """
-                      kubectl apply -f mysql-secret.yml
-                      kubectl apply -f nodes-pv.yml
-                      kubectl apply -f nodes-pvc.yml
-                      kubectl apply -f storageclass.yml
+                      kubectl apply -f mysql-configmap.yml
+                      kubectl apply -f mysql-root-credential.yml
+                      kubectl apply -f wordpress-configmap.yml
+                      kubectl apply -f wordpress-db-credential.yml
+                      kubectl apply -f ingress-controller.yml
+                      kubectl apply -f mysql-storageclass.yml
+                      kubectl apply -f mysql-pv-pvc.yml
                       kubectl apply -f mysql-deployment.yml
                       kubectl apply -f wordpress-deployment.yml
-                      kubectl apply -f ingress-controller.yml 
-                      kubectl apply -f mysql-hpa.yml
-                      kubectl apply -f wordpress-hpa.yml
                       kubectl apply -f wordpress-ingress.yml
-                      kubectl rollout status deployment/mysql
+                      kubectl apply -f wordpress-hpa.yml
+                    
                    """
             }
         }
