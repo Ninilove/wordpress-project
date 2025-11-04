@@ -7,9 +7,8 @@ spec:
     apiVersion: apps/v1 
     kind: Deployment
       name: wordpress
-      labels:
-        app: wordpress
-        tier: frontend
+      app: wordpress
+      tier: frontend
   minReplicas: 1
   maxReplicas: 2
   metrics:
