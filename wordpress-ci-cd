@@ -26,7 +26,7 @@ pipeline {
                       kubectl apply -f mysql-root-credential.yml
                       kubectl apply -f wordpress-configmap.yml
                       kubectl apply -f wordpress-db-credential.yml
-                      kubectl apply -f ingress-controller.yml
+                      kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.0/deploy/static/provider/cloud/deploy.yaml
                       kubectl apply -f mysql-storageclass.yml
                       kubectl apply -f mysql-pv-pvc.yml
                       kubectl apply -f mysql-deployment.yml
