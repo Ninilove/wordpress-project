@@ -15,5 +15,9 @@ spec:
         backend:
           service:
             name: wordpress
+            labels:
+              app: wordpress
+              tier: frontend
             port:
               number: 80
+              
