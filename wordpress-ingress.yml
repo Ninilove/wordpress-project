@@ -9,7 +9,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /wp-login.php
+        path: /
         backend:
           service:
             name: wordpress
