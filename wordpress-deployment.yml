@@ -11,6 +11,7 @@ spec:
   selector:
     app: wordpress
     tier: frontend
+    targetPort: 80
 ---
 
 apiVersion: apps/v1 
