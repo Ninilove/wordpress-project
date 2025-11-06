@@ -4,4 +4,4 @@ metadata:
   name: db-conf  
 data:
   host: mysql   
-  name: wpdb
+  MYSQL_DATABASE: wpdb
