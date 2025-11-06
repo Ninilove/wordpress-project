@@ -5,7 +5,7 @@ create_wp() {
     echo "Inserting Wordpress Env variables for connection..."
     sed -i "s/wordpress/$WORDPRESS_DB_NAME/" /var/www/html/wp-config.php
     sed -i "s/cm9vdA==/$WORDPRESS_DB_USER/" /var/www/html/wp-config.php
-    sed -i "s/YWRtaW4=/$WORDPRESS_DB_PASSWORD/" /var/www/html/wp-config.php
+    sed -i "s/YWxhaW4=/$WORDPRESS_DB_PASSWORD/" /var/www/html/wp-config.php
     sed -i "s/localhost/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
     sed -i "s/false/true/" /var/www/html/wp-config.php
     echo "done ..."
