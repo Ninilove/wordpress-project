@@ -52,8 +52,8 @@ spec:
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: WORDPRESS_DB_PASSWORD
-              key: password
+              name: db-credentials
+              key: WORDPRESS_DB_PASSWORD
         - name: WORDPRESS_DB_NAME
           valueFrom:
             configMapKeyRef:
