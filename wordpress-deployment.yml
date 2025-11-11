@@ -48,17 +48,17 @@ spec:
           valueFrom:
             secretKeyRef:
               name: db-credentials
-              key: username
+              key: WORDPRESS_DB_USER
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: db-credentials
+              name: WORDPRESS_DB_PASSWORD
               key: password
         - name: WORDPRESS_DB_NAME
           valueFrom:
             configMapKeyRef:
               name: db-conf
-              key: name
+              key: WORDPRESS_DB_NAME
         ports:
         - containerPort: 80
           name: wordpress
