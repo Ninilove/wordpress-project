@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: db-conf  
 data:
-  host: mysql   
- WORDPRESS_DB_NAME: "wordpress"
+  WORDPRESS_DB_HOST: "mysql:3306"   
+  WORDPRESS_DB_NAME: "wordpress"
