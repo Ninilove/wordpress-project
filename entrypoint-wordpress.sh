@@ -1,6 +1,7 @@
 #!/bin/sh
 DB_DIRECTORY="/var/www/html/wp-admin"
 sudo chmod 777 -R /var/www/html
+sudo yum install vi -y
 create_wp() {
     echo "Inserting Wordpress Env variables for connection..."
     sed -i "s/wordpress/$WORDPRESS_DB_NAME/" /var/www/html/wp-config.php
