@@ -6,7 +6,7 @@ create_wp() {
     sed -i "s/wordpress/$WORDPRESS_DB_NAME/" /var/www/html/wp-config.php
     sed -i "s/dbuser/$WORDPRESS_DB_USER/" /var/www/html/wp-config.php
     sed -i "s/alain/$WORDPRESS_DB_PASSWORD/" /var/www/html/wp-config.php
-    sed -i "s/mysql:3306/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
+    sed -i "s/localhost:3306/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
     sed -i "s/false/true/" /var/www/html/wp-config.php
     echo "done ..."
 }
