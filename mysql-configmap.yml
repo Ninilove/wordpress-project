@@ -4,4 +4,4 @@ metadata:
   name: db-conf  
 data:
   host: mysql   
-  name: wordpress
+ WORDPRESS_DB_NAME: "wordpress"
