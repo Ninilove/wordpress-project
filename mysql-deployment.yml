@@ -47,17 +47,17 @@ spec:
           valueFrom:
             secretKeyRef:
               name: db-credentials
-              key: username
+              key: WORDPRESS_DB_USER
         - name: MYSQL_PASSWORD 
           valueFrom:
             secretKeyRef:
               name: db-credentials
-              key: password
+              key: WORDPRESS_DB_PASSWORD
         - name: MYSQL_DATABASE 
           valueFrom:
             configMapKeyRef:
               name: db-conf
-              key: name
+              key: WORDPRESS_DB_NAME
         ports:
         - containerPort: 3306
           name: mysql
