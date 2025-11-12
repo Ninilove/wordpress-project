@@ -11,7 +11,7 @@ spec:
   selector:
     app: mysql
     tier: database
-  clusterIP: None
+  clusterIP: 
 ---
 
 apiVersion: apps/v1 
